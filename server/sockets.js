@@ -41,7 +41,7 @@ module.exports.broadcast = function (topic, data) {
         data: data
     };
 
-    sockets.forEach(function (socket) {
-        socket.send(JSON.stringify(payload));
+    sockets.forEach(function (socketContainer) {
+        socketContainer.socket.send(JSON.stringify(payload));
     });
 };

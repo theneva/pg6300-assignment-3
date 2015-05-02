@@ -9,8 +9,8 @@ app.config(function ($routeProvider) {
         .otherwise({controller: 'NotFoundController', templateUrl: 'templates/not_found.html'});
 });
 
-app.run(function ($rootScope) {
-    var url = 'ws://localhost:2306';
+app.run(function ($rootScope, $location) {
+    var url = 'ws://' + $location.host() + ':' + $location.port();
     var connection = new WebSocket(url);
 
     connection.onmessage = function (event) {
