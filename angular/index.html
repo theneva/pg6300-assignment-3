@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" ng-app="assignment3">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-controller="ApplicationController">
+<nav class="navbar navbar-default">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li><a href="/#/">Albums</a></li>
+            <li><a href="/#/register">Register</a></li>
+            <li><a href="/#/register">Log in</a></li>
+        </ul>
+
+        <a ng-if="currentUser" class="navbar-text navbar-right">Logged in as <span class="username">{{currentUser.username}}</span></a>
+        <a ng-if="currentUser" class="navbar-text navbar-right logout" ng-click="logout()">Log out</a>
+    </div>
+</nav>
+<div class="container" ng-view></div>
+<script src="node_modules/lodash/index.js"></script>
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-route/angular-route.js"></script>
+<script src="js/controllers.js"></script>
+</body>
+</html>

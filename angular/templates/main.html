@@ -1,0 +1,40 @@
+<h1>Albums</h1>
+
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Created</th>
+        <th>Creator</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td>
+            <input class="form-control" type="text" placeholder="Title" ng-model="newAlbum.title"/>
+        </td>
+        <td>
+            <input class="form-control" type="text" placeholder="Artist" ng-model="newAlbum.artist"/>
+        </td>
+        <td>(auto)</td>
+        <td>(auto)</td>
+        <td>(private)</td>
+        <td>
+            <button class="btn btn-primary save-new-album" ng-click="saveAlbum()">Save</button>
+        </td>
+    </tr>
+
+    <tr ng-repeat="album in albums">
+        <td>{{album.title}}</td>
+        <td>{{album.artist}}</td>
+        <td>{{album.createdAt}}</td>
+        <td>{{album.creator}}</td>
+        <td>{{album.public ? 'Public' : 'Private'}}</td>
+        <td>
+            <button ng-if="album.creator === currentUser.username" class="btn btn-warning" ng-click="toggleStatus(album)">Toggle status</button>
+        </td>
+        <td>
+            <button ng-if="album.creator === currentUser.username" class="btn btn-danger" ng-click="deleteAlbum(album._id)">Delete</button>
+        </td>
+    </tr>
+</table>
