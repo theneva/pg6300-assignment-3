@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/assignment3', function() {
+var url = process.env.MONGOLAB_URI || 'mongodb://localhost/assignment3';
+
+mongoose.connect(url, function() {
     console.log('Connected to MongoDB');
 });
 
